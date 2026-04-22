@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <!-- Swiper CSS CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+    <!-- Font Awesome 6 Free CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Bootstrap 5 RTL -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
+    />
+    <!-- style link css -->
+    <link rel="stylesheet" href="css/dashboard-style.css" />
+    <title>DashBoard | Home</title>
+  </head>
+  <body>
+    <!-- خلفية مظلمة للسايدبار (overlay) يتم التحكم بها بواسطة JS -->
+    <div class="aside-overlay-bg" id="asideOverlayBg"></div>
+
+    <div class="container mt-2">
+      <h1 class="text-center">الصفحة الرئيسية للوحة التحكم</h1>
+    </div>
+
+    <!-- saidebar toggle button -->
+    <div class="container btn-toggle-wrapper">
+      <button id="toggle-aside" class="toggle-aside-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <hr class="my-2" />
+
+    <div class="container">
+      <div class="d-flex position-relative">
+        <!-- Sidebar start -->
+        <aside id="aside" class="aside border rounded">
+          <ul class="ul-sidebar my-3">
+            <li class="active">
+              <i class="fa-solid fa-house"></i>
+              <a href="index.html">الصفحة الرئيسية</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-store"></i>
+              <a href="order-history.html">سجل الطلبات</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-cart-shopping"></i>
+              <a href="#">سلة التسوق</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-heart"></i>
+              <a href="#">المفضلة</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-arrows-rotate"></i>
+              <a href="#">compare</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-address-book"></i>
+              <a href="#">البطاقات والعناوين</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <a href="#">سجل التصفح</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-gear"></i>
+              <a href="#">الإعدادات</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <a href="#">تسجيل الخروج</a>
+            </li>
+          </ul>
+        </aside>
+        <!-- Saidebar end -->
+
+        <!-- Main Content Start -->
+        <div class="flex-grow-1">
+          <div class="container px-2 px-sm-3">
+            <!-- Welcome Section -->
+            <div class="heading-home mb-4">
+              <h2 class="fs-4 fw-bold">مرحباً، أحمد</h2>
+              <p class="w-50 lh-base">
+                من لوحة تحكم حسابك، يمكنك بسهولة الاطلاع على
+                <span class="fw-semibold">طلباتك الأخيرة</span> وإدارة
+                <span class="fw-semibold">عناوين الشحن والفواتير،</span> وتعديل
+                <span class="fw-semibold">كلمة المرور</span> و
+                <span>بيانات حسابك.</span>
+              </p>
+            </div>
+
+            <!-- البطاقات الإحصائية (معلومات الحساب، العناوين، الإحصائيات) -->
+            <div class="top-contenten row g-3 mb-4">
+              <!-- Account Info Box  -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="box border">
+                  <h3 class="heading-box border-bottom">معلومات الحساب</h3>
+                  <div class="account-info p-3">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                      <img
+                        src="images/image.png"
+                        alt="صورة الحساب"
+                        style="
+                          width: 55px;
+                          height: 55px;
+                          object-fit: cover;
+                          border-radius: 50%;
+                        "
+                      />
+                      <div>
+                        <h4 class="user-name">أحمد المحمد</h4>
+                        <p class="m-0">سوريا - دمشق</p>
+                      </div>
+                    </div>
+                    <ul class="m-0 mb-4 p-0 list-unstyled">
+                      <li class="d-flex align-items-center gap-2 mb-1">
+                        <span class="fw-bold">الإيميل:</span>
+                        <p class="m-0">mhdsdj@gmail.com</p>
+                      </li>
+                      <li class="d-flex align-items-center gap-2 mb-1">
+                        <span class="fw-bold">الإيميل</span>
+                        <p class="m-0">ahmed@example.com</p>
+                      </li>
+                      <li class="d-flex align-items-center gap-2 mb-1">
+                        <span class="fw-bold">الهاتف:</span>
+                        <p class="m-0">+963 991 234 567</p>
+                      </li>
+                    </ul>
+                    <a class="btn btn-primary" href="#">تعديل الحساب</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Billing  Address Box -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="box border">
+                  <h3 class="heading-box border-bottom">عنوان الفواتير</h3>
+                  <div class="p-3">
+                    <h4 class="user-name">أحمد المحمد</h4>
+                    <p class="fs-6 mb-3">
+                      الطريق رقم 13/، المنزل رقم 1320 الشقة رق دمشق - سوريا
+                    </p>
+                    <ul class="m-0 mb-4 p-0 list-unstyled">
+                      <li class="d-flex align-items-center gap-2 mb-1">
+                        <span class="fw-bold">الإيميل:</span>
+                        <p class="m-0">mhdsdj@gmail.com</p>
+                      </li>
+                      <li class="d-flex align-items-center gap-2 mb-1">
+                        <span class="fw-bold">الهاتف:</span>
+                        <p class="m-0">+963 991 234 567</p>
+                      </li>
+                    </ul>
+                    <a class="btn btn-primary" href="#">تعديل العنوان</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Stats Box -->
+              <div class="col-12 col-md-6 col-lg-4">
+                <div
+                  class="d-flex align-items-center gap-3 bg-primary-subtle rounded p-2 mb-2"
+                >
+                  <div class="p-3 bg-white rounded">
+                    <i class="fa-solid fa-rocket rocket-icon"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold">154</h4>
+                    <p>إجمالي الطلبات</p>
+                  </div>
+                </div>
+                <div
+                  class="d-flex align-items-center gap-3 bg-danger-subtle rounded p-2 mb-2"
+                >
+                  <div class="p-3 bg-white rounded">
+                    <i class="fa-solid fa-receipt receipt-icon"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold">5</h4>
+                    <p>الطلبات المعلقة</p>
+                  </div>
+                </div>
+                <div
+                  class="d-flex align-items-center gap-3 bg-primary-subtle rounded p-2"
+                >
+                  <div class="p-3 bg-white rounded">
+                    <i class="fa-solid fa-cube cube-icon"></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold">149</h4>
+                    <p>الطلبات المكتملة</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Payment Options start  -->
+            <div class="payment-options border mb-4">
+              <div
+                class="d-flex align-items-center justify-content-between border-bottom px-2 py-2 flex-wrap"
+              >
+                <h3 class="heading-box mb-0">خيارات الدفع</h3>
+                <a href="#">
+                  إضافة بطاقة <i class="fa-solid fa-arrow-left ms-1"></i>
+                </a>
+              </div>
+              <div class="row p-3 g-3">
+                <div class="col-12 col-lg-5">
+                  <div class="option-one rounded p-4">
+                    <div
+                      class="d-flex align-items-center justify-content-between mb-4"
+                    >
+                      <p class="m-0 fw-bold">$95,400.00 USD</p>
+                      <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="mb-2">
+                      <p class="mb-2">رقم البطاقة</p>
+                      <div class="card-code d-flex align-items-center gap-2">
+                        <p class="mb-0">**** **** **** 2255</p>
+                        <i class="fa-regular fa-clone"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between mt-3"
+                    >
+                      <i class="fa-brands fa-cc-visa fa-2x"></i>
+                      <span>أحمد المحمد</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-5">
+                  <div class="option-two rounded p-4">
+                    <div
+                      class="d-flex align-items-center justify-content-between mb-4"
+                    >
+                      <p class="m-0 fw-bold">$95,400.00 USD</p>
+                      <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="mb-2">
+                      <p class="mb-2">رقم البطاقة</p>
+                      <div class="card-code d-flex align-items-center gap-2">
+                        <p class="mb-0">**** **** **** 2255</p>
+                        <i class="fa-regular fa-clone"></i>
+                      </div>
+                    </div>
+                    <div
+                      class="d-flex align-items-center justify-content-between mt-3"
+                    >
+                      <i class="fa-brands fa-cc-mastercard fa-2x"></i>
+                      <span>أحمد المحمد</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Payment Options End -->
+
+            <!-- Recent Orders start  -->
+            <div class="recent-orders border mb-4">
+              <div
+                class="d-flex align-items-center justify-content-between border-bottom px-2 py-2"
+              >
+                <h3 class="heading-box mb-0">الطلبات الأخيرة</h3>
+                <a href="#">
+                  عرض الكل <i class="fa-solid fa-arrow-left ms-1"></i>
+                </a>
+              </div>
+              <div class="row m-0 table-responsive">
+                <table class="col-12 table table-hover">
+                  <thead class="table-light">
+                    <tr>
+                      <th>رقم الطلب</th>
+                      <th>الحالة</th>
+                      <th>التاريخ</th>
+                      <th>المجموع</th>
+                      <th>الإجراء</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459761</td>
+                      <td class="in-progress text-warning fw-semibold">
+                        قيد التقدم
+                      </td>
+                      <td>Dec 30, 2019 12:18</td>
+                      <td>$1,500</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459762</td>
+                      <td class="completed text-success fw-semibold">مكتمل</td>
+                      <td>Dec 30, 2019 01:18</td>
+                      <td>$1,700</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459763</td>
+                      <td class="canceled text-danger fw-semibold">ملغي</td>
+                      <td>Dec 30, 2019 02:18</td>
+                      <td>$1,800</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459764</td>
+                      <td class="in-progress text-warning fw-semibold">
+                        قيد التقدم
+                      </td>
+                      <td>Dec 30, 2019 06:18</td>
+                      <td>$1,100</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459765</td>
+                      <td class="completed text-success fw-semibold">مكتمل</td>
+                      <td>Dec 30, 2019 12:18</td>
+                      <td>$1,500</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459766</td>
+                      <td class="completed text-success fw-semibold">مكتمل</td>
+                      <td>Dec 30, 2019 01:18</td>
+                      <td>$1,700</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459767</td>
+                      <td class="canceled text-danger fw-semibold">ملغي</td>
+                      <td>Dec 30, 2019 02:18</td>
+                      <td>$1,800</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="Order-id fw-bold">#96459768</td>
+                      <td class="in-progress text-warning fw-semibold">
+                        قيد التقدم
+                      </td>
+                      <td>Dec 30, 2019 06:18</td>
+                      <td>$1,100</td>
+                      <td>
+                        <a class="view-details text-decoration-none" href="#"
+                          >عرض التفاصيل
+                          <i class="fa-solid fa-arrow-left ms-1"></i
+                        ></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Recent Orders End -->
+
+            <!-- Browsing History start -->
+            <div class="browsing-history border mb-4 pb-5">
+              <div
+                class="d-flex align-items-center justify-content-between border-bottom px-2 py-2"
+              >
+                <h3 class="heading-box mb-0">سجل التصفح</h3>
+                <a href="#">
+                  عرض الكل <i class="fa-solid fa-arrow-left ms-1"></i
+                ></a>
+              </div>
+              <div class="swiper mt-3">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/cat-1.jpg"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>
+                          دجاج 1.5 كغ طعام جاف للقطط البالغة بورينا برو بلان
+                        </p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/dog-1.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>طعام جاف بالدجاج للكلاب البالغة +7 هيلز 3 كغ</p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/dog-2.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>
+                          رويال كانين دراي فود للجراء الصغيرة (من 1 إلى 10 كجم)
+                        </p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/cat-2.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>
+                          طعام جاف للقطط المعقمة سمك 4.8 كغ كارنيلوف ترو فريش
+                        </p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/bird-1.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>سيريلاك لطيور اللوري واللوريكيت 700 غ نيوتري بيرد</p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/bird-2.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>طعام كامل لطيور الكناري 400 غ إنترنيتري</p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="product p-2">
+                      <div class="product-img mb-3">
+                        <img
+                          class="img-fluid w-100"
+                          src="images/slider/fish.webp"
+                          alt=""
+                        />
+                      </div>
+                      <div class="product-info">
+                        <div class="stars mb-2">
+                          <i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-solid fa-star"></i
+                          ><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p>طعام أسماك متكامل غني بالبروتين</p>
+                        <p class="product-price fw-bold">70$</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+            <!-- Browsing History end -->
+          </div>
+        </div>
+        <!-- Main Content End  -->
+      </div>
+    </div>
+
+    <!-- السكريبتات -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      // تهيئة Swiper slider (سجل التصفح)
+      if (typeof Swiper !== "undefined") {
+        new Swiper(".swiper", {
+          loop: false,
+          slidesPerView: 1.2,
+          spaceBetween: 16,
+          pagination: { el: ".swiper-pagination", clickable: true },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            576: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 24 },
+            1024: { slidesPerView: 4, spaceBetween: 24 },
+          },
+        });
+      }
+    </script>
+    <!-- script.js -->
+    <script src="script.js"></script>
+  </body>
+</html>

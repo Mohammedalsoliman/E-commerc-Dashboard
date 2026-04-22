@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <!-- Link Swiper's CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+
+    <!-- Font Awesome 6 Free CDN (إصدار ثابت) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Bootstrap 5 RTL -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.rtl.min.css"
+    />
+    <!-- custom dashboard CSS (تحافظ على الألوان الأصلية) -->
+    <link rel="stylesheet" href="css/dashboard-style.css" />
+
+    <title>لوحة التحكم - متجاوبة بالكامل</title>
+  </head>
+  <body>
+    <!-- خلفية مظلمة للسايدبار (overlay) يتم التحكم بها بواسطة JS -->
+    <div class="aside-overlay-bg" id="asideOverlayBg"></div>
+
+    <div class="container mt-2">
+      <h1 class="text-center">سجل الطلبات</h1>
+    </div>
+
+    <!-- saidebar toggle button -->
+    <div class="container btn-toggle-wrapper">
+      <button id="toggle-aside" class="toggle-aside-btn">
+        <i class="fas fa-bars"></i> القائمة
+      </button>
+    </div>
+
+    <hr class="my-2" />
+
+    <div class="container">
+      <div class="d-flex position-relative">
+        <!-- SideBar Start -->
+        <aside id="aside" class="aside border rounded">
+          <ul class="ul-sidebar my-3">
+            <li class="active">
+              <i class="fa-solid fa-house"></i>
+              <a href="index.html">الصفحة الرئيسية</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-store"></i>
+              <a href="order-history.html">سجل الطلبات</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-cart-shopping"></i>
+              <a href="#">سلة التسوق</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-heart"></i>
+              <a href="#">المفضلة</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-arrows-rotate"></i>
+              <a href="#">compare</a>
+            </li>
+            <li>
+              <i class="fa-regular fa-address-book"></i>
+              <a href="#">البطاقات والعناوين</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <a href="#">سجل التصفح</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-gear"></i>
+              <a href="#">الإعدادات</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <a href="#">تسجيل الخروج</a>
+            </li>
+          </ul>
+        </aside>
+        <!-- SideBar End-->
+
+        <!-- Main Content Start-->
+        <div class="flex-grow-1">
+          <div class="container px-2 px-sm-3">
+            <!--  Recent Orders Start -->
+            <div
+              class="swiper mySwiper"
+              style="padding-bottom: 40px; padding-top: 0"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide recent-orders border mb-4">
+                  <div
+                    class="d-flex align-items-center justify-content-between border-bottom px-2 py-2"
+                  >
+                    <h3 class="heading-box mb-0">الطلبات الأخيرة</h3>
+                    <a href="#">
+                      عرض الكل <i class="fa-solid fa-arrow-left ms-1"></i>
+                    </a>
+                  </div>
+                  <div class="row m-0 table-responsive">
+                    <table class="col-12 table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th>رقم الطلب</th>
+                          <th>الحالة</th>
+                          <th>التاريخ</th>
+                          <th>المجموع</th>
+                          <th>الإجراء</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459761</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459762</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459763</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459764</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459765</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459766</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459767</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459768</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="swiper-slide recent-orders border mb-4">
+                  <div
+                    class="d-flex align-items-center justify-content-between border-bottom px-2 py-2"
+                  >
+                    <h3 class="heading-box mb-0">الطلبات الأخيرة</h3>
+                    <a href="#">
+                      عرض الكل <i class="fa-solid fa-arrow-left ms-1"></i>
+                    </a>
+                  </div>
+                  <div class="row m-0 table-responsive">
+                    <table class="col-12 table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th>رقم الطلب</th>
+                          <th>الحالة</th>
+                          <th>التاريخ</th>
+                          <th>المجموع</th>
+                          <th>الإجراء</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459761</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459762</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459763</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459764</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459765</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459766</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459767</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459768</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="swiper-slide recent-orders border mb-4">
+                  <div
+                    class="d-flex align-items-center justify-content-between border-bottom px-2 py-2"
+                  >
+                    <h3 class="heading-box mb-0">الطلبات الأخيرة</h3>
+                    <a href="#">
+                      عرض الكل <i class="fa-solid fa-arrow-left ms-1"></i>
+                    </a>
+                  </div>
+                  <div class="row m-0 table-responsive">
+                    <table class="col-12 table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th>رقم الطلب</th>
+                          <th>الحالة</th>
+                          <th>التاريخ</th>
+                          <th>المجموع</th>
+                          <th>الإجراء</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459761</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459762</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459763</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459764</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459765</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459766</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459767</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459768</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="swiper-slide recent-orders border mb-4">
+                  <div
+                    class="d-flex align-items-center justify-content-between border-bottom px-2 py-2"
+                  >
+                    <h3 class="heading-box mb-0">الطلبات الأخيرة</h3>
+                    <a href="#">
+                      عرض الكل <i class="fa-solid fa-arrow-left ms-1"></i>
+                    </a>
+                  </div>
+                  <div class="row m-0 table-responsive">
+                    <table class="col-12 table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th>رقم الطلب</th>
+                          <th>الحالة</th>
+                          <th>التاريخ</th>
+                          <th>المجموع</th>
+                          <th>الإجراء</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459761</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459762</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459763</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459764</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459765</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 12:18</td>
+                          <td>$1,500</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459766</td>
+                          <td class="completed text-success fw-semibold">
+                            مكتمل
+                          </td>
+                          <td>Dec 30, 2019 01:18</td>
+                          <td>$1,700</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459767</td>
+                          <td class="canceled text-danger fw-semibold">ملغي</td>
+                          <td>Dec 30, 2019 02:18</td>
+                          <td>$1,800</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="Order-id fw-bold">#96459768</td>
+                          <td class="in-progress text-warning fw-semibold">
+                            قيد التقدم
+                          </td>
+                          <td>Dec 30, 2019 06:18</td>
+                          <td>$1,100</td>
+                          <td>
+                            <a
+                              class="view-details text-decoration-none"
+                              href="#"
+                              >عرض التفاصيل
+                              <i class="fa-solid fa-arrow-left ms-1"></i
+                            ></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+            <!-- Recent Orders End -->
+          </div>
+        </div>
+        <!-- Main Content End  -->
+      </div>
+    </div>
+
+    <!--  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+      // تهيئة Swiper slider (سجل التصفح)
+      if (typeof Swiper !== "undefined") {
+        new Swiper(".swiper", {
+          loop: false,
+          slidesPerView: 1.2,
+          spaceBetween: 16,
+          pagination: { el: ".swiper-pagination", clickable: true },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          breakpoints: {
+            576: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 1, spaceBetween: 24 },
+            1024: { slidesPerView: 1, spaceBetween: 24 },
+          },
+        });
+      }
+    </script>
+    <!-- script.js الأصلي (إذا كان موجوداً) -->
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap");
+
+:root {
+  --primary-color: #f97316;
+  --secondray-color: #2bb3c0;
+  --accent-color: #6cc24a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "cairo";
+  height: 2000px;
+}
+
+/* ===== التعديلات المتجاوبة للسايدبار ===== */
+/* القيم الافتراضية للشاشات الكبيرة (Desktop) */
+.aside {
+  position: sticky;
+  top: 0;
+  transition: all 0.3s ease;
+  background-color: #fff; /* يحافظ على لون الخلفية من dashboard.css */
+  width: 260px; /* عرض افتراضي كامل */
+  height: 508px;
+  flex-shrink: 0;
+}
+
+/* في الوضع العادي للديسكتوب: النصوص ظاهرة */
+.aside .ul-sidebar li a {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+/* زر التبديل (open) نخفيه في الديسكتوب */
+.toggle-aside-btn {
+  display: none;
+}
+
+/* ===== شاشات الموبايل والتابلت (اقل من 992px) ===== */
+@media (max-width: 991.98px) {
+  /* السايدبار في الوضع المصغر (أيقونات فقط) */
+  .aside {
+    position: relative;
+    width: 80px !important; /* عرض ضيق للأيقونات فقط */
+    min-width: 80px;
+    transition:
+      width 0.25s ease,
+      position 0s;
+    overflow: hidden;
+    z-index: 1020;
+  }
+
+  /* إخفاء النصوص تمامًا في الوضع المصغر */
+  .aside .ul-sidebar li a {
+    display: none;
+  }
+
+  /* توسيط الأيقونات وجعلها اكبر قليلاً */
+  .aside .ul-sidebar li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 0;
+    text-align: center;
+  }
+
+  .aside .ul-sidebar li i {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+
+  /* إزالة المسافات الجانبية للقائمة */
+  .aside .ul-sidebar {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* زر فتح القائمة (هامبورجر) يظهر في الموبايل */
+  .toggle-aside-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #198754;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 1.1rem;
+    gap: 6px;
+    transition: 0.2s;
+  }
+
+  .toggle-aside-btn i {
+    font-size: 1.2rem;
+  }
+
+  /* حالة السايدبار المفتوح بالكامل (overlay فوق المحتوى) */
+  .aside.overlay-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px !important;
+    height: 100vh;
+    z-index: 1060;
+    background-color: #fff;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    transition:
+      transform 0.3s ease,
+      width 0.2s;
+    transform: translateX(0);
+  }
+
+  /* عند تفعيل الـ overlay نظهر النصوص مرة أخرى */
+  .aside.overlay-active .ul-sidebar li a {
+    display: inline-block;
+  }
+
+  .aside.overlay-active .ul-sidebar li {
+    justify-content: flex-start;
+    padding: 10px 20px;
+    gap: 12px;
+  }
+
+  .aside.overlay-active .ul-sidebar li i {
+    font-size: 1.3rem;
+    width: 28px;
+    text-align: center;
+  }
+
+  /* خلفية داكنة خلف الـ overlay */
+  .aside-overlay-bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    display: none;
+    backdrop-filter: blur(2px);
+  }
+
+  body.overlay-open .aside-overlay-bg {
+    display: block;
+  }
+
+  /* عند فتح الـ overlay نمنع تمرير الصفحة خلفه */
+  body.overlay-open {
+    overflow: hidden;
+  }
+
+  /* تعديل بسيط للكونتينر الرئيسي */
+  .d-flex {
+    align-items: flex-start;
+  }
+
+  /* لجعل المحتوى يأخذ باقي المساحة بجانب الأيقونات */
+  .flex-grow-1 {
+    width: calc(100% - 80px);
+  }
+}
+
+/* شاشات صغيرة جداً (اقل من 576px) يمكن ضبط الهوامش */
+@media (max-width: 575.98px) {
+  .aside {
+    width: 70px !important;
+    min-width: 70px;
+  }
+  .flex-grow-1 {
+    width: calc(100% - 70px);
+  }
+  .heading-home p.w-50 {
+    width: 100% !important;
+  }
+  .top-contenten .box {
+    margin-bottom: 0.5rem;
+  }
+  .payment-options .row > div,
+  .recent-orders table {
+    font-size: 0.85rem;
+  }
+  .recent-orders .view-details {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+
+/* تحسينات إضافية للجداول في الشاشات الصغيرة */
+@media (max-width: 767px) {
+  .recent-orders .table-responsive {
+    overflow-x: auto;
+  }
+  .recent-orders table {
+    min-width: 600px;
+  }
+}
+
+/* الحفاظ على الوان العناصر كما هي (من dashboard.css) */
+/* نضمن ان السايدبار النشط والروابط تحافظ على الوانها */
+.aside .ul-sidebar li.active {
+  background-color: #f97316;
+  border-right: 3px solid #0d6efd;
+}
+
+/* تعديل ترتيب زر الـ open ليكون مناسباً */
+.btn-toggle-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+/* تحسين تجربة السايدبار في وضع الأيقونات */
+.aside .ul-sidebar li {
+  list-style: none;
+  margin-bottom: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.aside .ul-sidebar li:hover {
+  color: #fff;
+}
+
+.aside .ul-sidebar li i {
+  margin-left: 12px;
+  width: 24px;
+  text-align: center;
+}
+
+/* لضمان توافق أيقونات Font Awesome */
+.fa,
+.fas,
+.far,
+.fab {
+  font-family: "Font Awesome 6 Free";
+}
+
+.ul-sidebar {
+  padding: 0;
+}
+
+.ul-sidebar li {
+  margin-bottom: 3px;
+  padding-block: 13px;
+  padding-inline: 24px;
+}
+
+.ul-sidebar li i {
+  margin-inline-end: 12px;
+}
+
+.ul-sidebar li a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5f6c72;
+}
+
+.ul-sidebar li.active a {
+  color: white;
+}
+
+.ul-sidebar li:hover {
+  background-color: var(--primary-color);
+}
+/* sidebar end */
+
+/* Welcome Section start */
+.heading-home p {
+  font-weight: 500;
+  color: #5f6c72;
+}
+
+.heading-home p span {
+  color: var(--secondray-color);
+}
+
+.account-info img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.heading-box {
+  padding: 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.top-contenten .rocket-icon,
+.top-contenten .receipt-icon,
+.top-contenten .cube-icon {
+  font-size: 20px;
+}
+
+.top-contenten .rocket-icon {
+  rotate: -43deg;
+  color: var(--secondray-color);
+}
+
+.top-contenten .receipt-icon {
+  color: var(--primary-color);
+}
+
+.top-contenten .cube-icon {
+  color: var(--accent-color);
+}
+
+/* payment options start */
+.payment-options .option-one {
+  background-color: rgb(1, 1, 146);
+  color: white;
+}
+
+.payment-options .option-two {
+  background-color: rgb(14, 153, 2);
+  color: white;
+}
+
+.payment-options .card-code p {
+  font-size: 20px;
+}
+
+.payment-options .card-code i {
+  font-size: 20px;
+}
+
+/* payment options end */
+
+/* Recent Order start */
+.recent-orders table thead td {
+  background-color: #f2f4f5;
+  padding-block: 10px;
+}
+
+.recent-orders table tbody td {
+  padding-block: 12px;
+  color: #475156;
+}
+
+.recent-orders table thead td:first-child,
+.recent-orders table tbody tr td:first-child {
+  padding-inline-start: 24px;
+}
+
+.recent-orders .Order-id {
+  color: black;
+  font-weight: 500;
+}
+
+.recent-orders .view-details {
+  color: var(--secondray-color);
+}
+
+.recent-orders .in-progress {
+  color: var(--primary-color);
+}
+
+.recent-orders .completed {
+  color: var(--accent-color);
+}
+
+.recent-orders .canceled {
+  color: #ee5858;
+}
+/* Recent Order end */
+
+/* browsing-history start */
+.browsing-history .product .stars i {
+  color: #fa8232;
+}
+
+.browsing-history .product .product-info p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.browsing-history .product .product-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondray-color);
+}
+/* browsing-history end */
+
+/* Swiper init */
+
+.swiper {
+  width: 700px;
+  padding-bottom: 50px;
+}
+.swiper-pagination-bullet {
+  background-color: #f97316;
+}
+.swiper-button-next {
+  color: #f97316;
+  top: auto !important;
+  bottom: 0 !important;
+  left: 40px !important;
+  border: 1px solid;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 5px;
+}
+.swiper-button-prev {
+  color: #f97316;
+  top: auto !important;
+  bottom: 0 !important;
+  right: 40px !important;
+  border: 1px solid;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 5px;
+}
